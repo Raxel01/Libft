@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:36:01 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/05 12:00:38 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:00:08 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if ((c <= 65 && c <= 122) || (c >= 0 && c <= 9))
-		return (1);
-	else
-		return (0);
+	return(ft_isdigit(c) || ft_isalpha(c));
 }

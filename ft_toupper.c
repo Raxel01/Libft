@@ -6,20 +6,15 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:02:59 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/06 13:08:49 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:59:00 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-int ft_toupper(int c)
+
+int	ft_toupper(int c)
 {
-	if (c >=97 && c<= 122)
-		c -= 32;
+	if (c >= 97 && c <= 122)
+	c -= 32;
 	return (c);
-}
-int main()
-{
-printf("%c", toupper(98));
-return 0;
 }

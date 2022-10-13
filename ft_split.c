@@ -1,83 +1,94 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_new_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 10:40:51 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/11 19:04:27 by abait-ta         ###   ########.fr       */
+/*   Created: 2022/10/11 19:04:35 by abait-ta          #+#    #+#             */
+/*   Updated: 2022/10/13 11:34:02 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-#include <string.h>
 
-static int count_to_alloc(char *str, char separ)
+static int	get_num_of_words(char const *s, char c)
 {
-    int i;
-    int j;
-    
-    i= 0;
-    j =0;
-    while (str[i])
-    {
-        if (str[i] != separ)
-        {
-            j++;
-        }
-        i++;
-    }
-    return(j);
-}
-static  int get_n_word(char *str, char separ )
-{
-    int i = 0;
-    int wordcount;
-    int len = strlen(str);
-    wordcount = 0;
+	int	i;
+	int	count;
 
-    i = 0;
-    if (!str[0])
-        return (0);
-    while(str[i])
-    {
-        if (str[i] == separ && str[i + 1] != separ && i < len - 1)
-        { wordcount++;
-        }
-        i++;
-    }
-    if (wordcount == 0)
-        return (1);
-return(wordcount);
-}
-static char *Decoupage(char *str,char *trans, char separ)
-{
-    int i = 0;
-    int j = 0;
-    int len = 0;
-    while (str[i])
-    {
-        if (str[i] != separ)
-        {
-            trans[j] = str[i];
-        j++;
-        
-        }
-        i++;
-        trans[j] = '\0';
-    }
-
-return(trans);
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
+			count++;
+		i++;
+	}
+	return (count);
 }
 
-int main ()
+char	**remplissage(char **str, char const *s, char c)
 {
-    char str[]= ",,,clean,,,,code,,,try,,,to ,,,have,,,clean,,,code,,,,,,";
-    char trans[50];
-   // printf("%s", Decoupage(str,trans,','));
-    printf("%d",count_to_alloc(str,','));
-    //char *trans = Decoupage(str,trans,',');
-    //puts(trans);
-return 0;
+	int	i;
+	int	num;
+	int	ind;
+
+	i = 0;
+	num = 0;
+	ind = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+			str[num][ind++] = s[i];
+		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
+		{
+			str[num][ind] = '\0';
+			num++;
+			ind = 0;
+		}
+		i++;
+	}
+	return (str);
+}
+
+char	**free_function(char **str, int n)
+{
+	n = 0;
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		num_words;
+	char	**str;
+	int		i;
+	int		len;
+	int		num;
+
+	num_words = get_num_of_words(s, c);
+	str = (char **)malloc(sizeof(char *) * num_words);
+	if (!str)
+		return (str);
+	num = 0;
+	len = 0;
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
+		{
+			str[num++] = (char *)malloc(len + 1);
+			if (!str[num - 1])
+				return (free_function(str, num_words));
+			len = -1;
+		}
+		len++;
+		i++;
+	}
+	return (remplissage(str, s, c));
 }

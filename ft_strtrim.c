@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:53:16 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/11 07:50:48 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:58:28 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static	int	ft_get_start(char const *s1, char const *set)
 
 static	int	ft_get_end(char const *s1, char const *set)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(s1)-1;
 	while (i >= 0)
@@ -54,16 +54,16 @@ static	int	ft_get_end(char const *s1, char const *set)
 	return (0);
 }
 
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
 	char	*str;
 	int		len;
-	int		i;	
+	int		i;
+
 	end = ft_get_end(s1, set);
-	start = ft_get_start(s1, set);	
+	start = ft_get_start(s1, set);
 	len = end - start + 1;
 	i = start;
 	if (end < start)
@@ -78,13 +78,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	str[i - start] = '\0';
 	return (str);
-}
-
-int main()
-{
-	char str[] = "abcabcwach akhouna.abcab";
-    char set[] = "abc";
-
-	printf("%s\n", ft_strtrim(str, set));
-	return (0);
 }
