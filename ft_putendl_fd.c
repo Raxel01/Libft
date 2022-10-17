@@ -6,15 +6,15 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:07:07 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/13 10:55:38 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:18:42 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -22,5 +22,5 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-	write(fd, "\n", 1);
+	ft_putchar_fd(10, fd);
 }

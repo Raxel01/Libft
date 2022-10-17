@@ -6,10 +6,9 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:12:58 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/13 16:42:48 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:09:13 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 char	*ft_strrchr(char *str, int c)
@@ -17,8 +16,7 @@ char	*ft_strrchr(char *str, int c)
 	int	i;
 
 	i = ft_strlen(str);
-
-	while ( i >= 0)
+	while (i >= 0)
 	{
 		if (str[i] == (char) c)
 			return (str + i);

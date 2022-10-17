@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:23:35 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/12 16:47:40 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:17:16 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned char	i;
+	int	i;
 
 	i = 0;
 	while (s[i])

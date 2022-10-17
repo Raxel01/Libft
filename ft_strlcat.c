@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:28:32 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/13 16:26:10 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:31:21 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	i = 0;
 	lend = ft_strlen(dest);
 	lens = ft_strlen(src);
-	if (lens == 0)
-		return(size);
 	if (lend < size)
 	{
 		while (src[i] && (i + lend) < (size - 1))

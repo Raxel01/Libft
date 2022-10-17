@@ -29,11 +29,3 @@ void	*ft_memcpy(void *s1, const void *s2, size_t n)
 	}
 	return (dest);
 }
-/*int main()
-{
-	char src[] = "abdelali ait talb ";
-	char dest [20];
-	printf("--%s--", ft_memcpy(dest,src,10));
-	return 0;
-
-}*/

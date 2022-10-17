@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:02:24 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/13 16:48:39 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:52:33 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		i++;
 	}
 	if (c == '\0')
-		return (sec+i);
+		return (sec + i);
 	return (NULL);
 }

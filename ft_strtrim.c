@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:53:16 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/12 16:58:28 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:54:56 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len = 1;
 	str = (char *)malloc(len);
 	if (!str)
-		return (str);
+		return (NULL);
 	while (i <= end)
 	{
 		str[i - start] = s1[i];
