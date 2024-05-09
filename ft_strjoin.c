@@ -6,7 +6,7 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 17:06:38 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/16 15:46:57 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:37:22 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
-	char	*end;
+	size_t	len;
+	char	*join;
+	size_t	i;
+	size_t	j;
 
-	i = -1;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	end = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!end)
-		return (NULL);
-	while (s1[++i])
+	if (s1 && s2)
 	{
-		end[j] = s1[i];
-		j++;
+		len = ft_strlen(s1) + ft_strlen(s2);
+		join = (char *)malloc(len + 1);
+		if (!join)
+			return (NULL);
+		i = -1;
+		j = 0;
+		while (++i < ft_strlen(s1))
+			join[i] = s1[i];
+		while (j < ft_strlen(s2))
+		{
+			join[i + j] = s2[j];
+			j++;
+		}
+		join[i + j] = '\0';
+		return (join);
 	}
-	i = -1;
-	while (s2[++i])
-	{
-	end[j] = s2[i];
-	j++;
-	}
-	end[j] = '\0';
-	return (end);
+	else
+		return (NULL);
 }

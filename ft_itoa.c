@@ -6,19 +6,19 @@
 /*   By: abait-ta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:54:02 by abait-ta          #+#    #+#             */
-/*   Updated: 2022/10/16 17:10:29 by abait-ta         ###   ########.fr       */
+/*   Updated: 2022/10/19 09:46:42 by abait-ta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-long	ft_abs(long n)
+static	long	ft_abs(long n)
 {
 	if (n < 0)
 		n = n * (-1);
 	return (n);
 }
 
-char	*strrev(char *str)
+static	char	*strrev(char *str)
 {
 	int		i;
 	int		len;
@@ -37,14 +37,14 @@ char	*strrev(char *str)
 	return (str);
 }
 
-int	get_is_negative(int n)
+static	int	get_is_negative(int n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-int	nb_isdigit(int n)
+static	int	nb_isdigit(int n)
 {
 	int	digit;
 
